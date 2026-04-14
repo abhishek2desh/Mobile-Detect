@@ -1379,7 +1379,7 @@ class MobileDetect
      * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
      * @throws \Exception
      */
-    public function __call(string $name, array $arguments)
+    public function __call(string $name, array $arguments): bool
     {
         // make sure the name starts with 'is', otherwise
         if (!str_starts_with($name, 'is')) {
@@ -1647,7 +1647,7 @@ class MobileDetect
         $arrVer = explode('.', $ver, 2);
 
         if (isset($arrVer[1])) {
-            $arrVer[1] = @str_replace('.', '', $arrVer[1]); // @todo: treat strings versions.
+            $arrVer[1] = str_replace('.', '', $arrVer[1]); // @todo: treat strings versions.
         }
 
         return (float) implode('.', $arrVer);

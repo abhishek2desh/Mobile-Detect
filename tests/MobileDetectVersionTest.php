@@ -52,7 +52,7 @@ final class MobileDetectVersionTest extends TestCase
     /**
      * @dataProvider versionDataProvider
      */
-    public function testVersionExtraction($userAgent, $property, $stringVersion, $floatVersion)
+    public function testVersionExtraction(string $userAgent, string $property, string $stringVersion, float $floatVersion)
     {
         $detect = new MobileDetect();
         $detect->setHttpHeaders(['HTTP_USER_AGENT' => $userAgent]);
@@ -86,7 +86,7 @@ final class MobileDetectVersionTest extends TestCase
      * @param $raw
      * @param $expected
      */
-    public function testPrepareVersionNo($raw, $expected)
+    public function testPrepareVersionNo(string $raw, float $expected)
     {
         $md = new MobileDetect();
         $actual = $md->prepareVersionNo($raw);

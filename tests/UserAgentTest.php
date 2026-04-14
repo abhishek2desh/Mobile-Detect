@@ -162,13 +162,8 @@ final class UserAgentTest extends TestCase
      * @dataProvider userAgentData
      * @throws MobileDetectException
      */
-    public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor, $vendorCheck = false)
+    public function testUserAgents(string $userAgent, bool $isMobile, bool $isTablet, ?array $version, ?string $model, string|int|null $vendor, ?bool $vendorCheck = false)
     {
-        //make sure we're passed valid data
-        if (!is_string($userAgent) || !is_bool($isMobile) || !is_bool($isTablet)) {
-            $this->markTestIncomplete("The User-Agent $userAgent does not have sufficient information for testing.");
-        }
-
         //setup
         $this->detect->setUserAgent($userAgent);
 
@@ -178,21 +173,19 @@ final class UserAgentTest extends TestCase
         //is tablet?
         $this->assertEquals($isTablet, $this->detect->isTablet(), "FAILED: \n----\nUA: $userAgent\n----\nisTablet: $isTablet");
 
-        if (isset($version)) {
+        if ($version !== null) {
             foreach ($version as $condition => $assertion) {
                 $this->assertEquals($assertion, $this->detect->version($condition), 'FAILED UA (version("' . $condition . '")): ' . $userAgent);
             }
-        }
 
-        //version property tests
-        if (isset($version)) {
+            //version property tests
             foreach ($version as $property => $stringVersion) {
                 $v = $this->detect->version($property);
                 $this->assertSame($stringVersion, $v);
             }
         }
 
-        if (isset($vendorCheck) && $vendorCheck === true) {
+        if ($vendorCheck === true) {
             $method = "is$vendor";
             $this->assertTrue($this->detect->{$method}(), "Expected Mobile_Detect::{$method}() to be true.");
         }

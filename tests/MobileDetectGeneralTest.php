@@ -230,7 +230,7 @@ final class MobileDetectGeneralTest extends TestCase
      * @dataProvider headersProvider
      * @param $headers
      */
-    public function testInvalidHeader($headers)
+    public function testInvalidHeader(array $headers)
     {
         $detect = new MobileDetect();
         $detect->setHttpHeaders($headers);
@@ -266,7 +266,7 @@ final class MobileDetectGeneralTest extends TestCase
      * @param $headers
      * @param $expectedUserAgent
      */
-    public function testGetUserAgent($headers, $expectedUserAgent)
+    public function testGetUserAgent(array $headers, string $expectedUserAgent)
     {
         $detect = new MobileDetect();
         $detect->setHttpHeaders($headers);
@@ -410,7 +410,7 @@ final class MobileDetectGeneralTest extends TestCase
      * @dataProvider quickHeadersData
      * @param $headers
      */
-    public function testQuickHeaders($headers)
+    public function testQuickHeaders(array $headers)
     {
         $detect = new MobileDetect();
         $detect->setHttpHeaders($headers);
@@ -448,7 +448,7 @@ final class MobileDetectGeneralTest extends TestCase
      * @dataProvider quickNonMobileHeadersData
      * @param $headers
      */
-    public function testNonMobileQuickHeaders($headers)
+    public function testNonMobileQuickHeaders(array $headers)
     {
         $detect = new MobileDetect();
         $detect->setHttpHeaders($headers);
