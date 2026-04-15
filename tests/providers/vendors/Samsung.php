@@ -329,5 +329,26 @@ return [
         "Mozilla/5.0 (Linux; Android 7.0; SM-T710X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
         "Mozilla/5.0 (Linux; Android 10; SM-T510X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.99 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
         "Mozilla/5.0 (Linux; Android 7.1.1; SM-T550X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+
+        // Galaxy Tab S11 Ultra (2025)
+        "Mozilla/5.0 (Linux; Android 16; SM-X930) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 16; SM-X930N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 16; SM-X936B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 16; SM-X936N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        // Galaxy Tab S11 (2025)
+        "Mozilla/5.0 (Linux; Android 16; SM-X730) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 16; SM-X736) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 16; SM-X736B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        // Galaxy Tab S10 Lite (2025)
+        "Mozilla/5.0 (Linux; Android 15; SM-X400) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 15; SM-X406) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 15; SM-X406B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        // Galaxy Tab A11+ (2025)
+        "Mozilla/5.0 (Linux; Android 16; SM-X230) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 16; SM-X236B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        // Galaxy Tab A11 (2025)
+        "Mozilla/5.0 (Linux; Android 15; SM-X133) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 15; SM-X135) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 15; SM-X135F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
     ],
 ];
