@@ -115,7 +115,7 @@ final class MobileDetectGeneralTest extends TestCase
     {
         $detect = new MobileDetect();
         $this->assertNotEmpty($version = $detect->getVersion());
-        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9])?$/', $version);
+        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9]+)?$/', $version);
         $this->assertTrue($formatCheck, "Fails the semantic version test. The version " . var_export($version, true)
             . ' does not match X.Y.Z pattern');
     }
