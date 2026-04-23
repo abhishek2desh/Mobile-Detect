@@ -76,10 +76,7 @@ jobs:
           extensions: mbstring, intl
           tools: composer:latest
 
-      - name: Install composer dependencies
-        run: composer install --no-interaction
-
-      - name: Pin psr/simple-cache to ${{ matrix.psr-simple-cache }}
+      - name: Install with psr/simple-cache ${{ matrix.psr-simple-cache }}
         run: composer require "psr/simple-cache:${{ matrix.psr-simple-cache }}" --update-with-dependencies --no-interaction
 
       - name: Run tests
