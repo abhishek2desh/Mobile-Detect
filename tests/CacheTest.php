@@ -443,35 +443,30 @@ final class CacheTest extends TestCase
     public function testSetMultipleWithNonIterableThrowsException(): void
     {
         $this->expectException(CacheInvalidArgumentException::class);
-        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
         $this->cache->setMultiple('not-iterable');
     }
 
     public function testGetMultipleWithNonIterableThrowsException(): void
     {
         $this->expectException(CacheInvalidArgumentException::class);
-        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
         $this->cache->getMultiple('not-iterable');
     }
 
     public function testDeleteMultipleWithNonIterableThrowsException(): void
     {
         $this->expectException(CacheInvalidArgumentException::class);
-        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
         $this->cache->deleteMultiple('not-iterable');
     }
 
     public function testGetWithNonStringKeyThrowsException(): void
     {
         $this->expectException(CacheInvalidArgumentException::class);
-        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
         $this->cache->get(123);
     }
 
     public function testSetWithNonStringKeyThrowsException(): void
     {
         $this->expectException(CacheInvalidArgumentException::class);
-        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
         $this->cache->set(['notAKey'], 'value');
     }
 }
