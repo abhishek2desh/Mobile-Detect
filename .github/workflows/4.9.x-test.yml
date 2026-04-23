@@ -1,4 +1,4 @@
-name: 4.8.x on PHP 8.x
+name: 4.9.x on PHP 8.x
 
 # Run this workflow every time a new commit pushed to your repository
 on:
@@ -6,14 +6,14 @@ on:
   workflow_dispatch:
 
   push:
-    branches: ['4.8.x']
+    branches: ['4.9.x']
     paths-ignore:
       - '*.md'
       - '.github/**'
       - 'scripts/**'
 
   pull_request:
-    branches: ['4.8.x']
+    branches: ['4.9.x']
     paths-ignore:
       - '*.md'
       - '.github/**'

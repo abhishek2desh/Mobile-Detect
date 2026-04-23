@@ -1,5 +1,23 @@
 # Change log
 
+# 4.9.0
+
+## Added
+- [x] Lenovo: broad `Lenovo TB` prefix match for modern tablets (#1013).
+- [x] Samsung: 2025 tablet models (Tab S11, S10 Lite, A11).
+- [x] `MobileDetect::VERSION_TYPE_STRING` and `VERSION_TYPE_FLOAT` constants promoted to `public` (#991).
+
+## Changed
+- [x] Consistent late static binding for subclass extensibility (#1012).
+- [x] Dropped PHP 8.0 and 8.1 from the CI matrix.
+
+## Fixed
+- [x] PHP 8.4 compatibility: explicit type hints where the engine now requires them.
+- [x] `Cache::getTimestamp()` method name typo (was `getTimeStamp`) (#1007).
+- [x] Version regex now accepts multi-char pre-release suffixes.
+- [x] Pinned composer dependencies to exact versions.
+- [x] GitHub Actions workflow actions updated to their latest versions.
+
 # 4.8.10
 
 ## Fixed
