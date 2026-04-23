@@ -20,7 +20,7 @@ MobileDetect is maintained on one rolling branch per major line. Tags follow the
 |---------|--------------------------|--------|--------------|--------------------------|
 | 2.*     | `\Mobile_Detect`         | `2.x`  | \>=5.0,<7.0  | Deprecated               |
 | 3.*     | `Detection\MobileDetect` | `3.x`  | \>=7.4,<8.0  | LTS                      |
-| 4.*     | `Detection\MobileDetect` | `4.x`  | \>=8.0       | Current, **Recommended** |
+| 4.*     | `Detection\MobileDetect` | `4.x`  | \>=8.2 (since 4.10.0, previously \>=8.0) | Current, **Recommended** |
 
 ## 🤝 Supporting
 

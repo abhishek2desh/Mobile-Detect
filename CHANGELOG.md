@@ -1,5 +1,18 @@
 # Change log
 
+# 4.10.0
+
+## Changed
+- [x] `Detection\Cache\Cache` method signatures widened to be Liskov-compatible with `psr/simple-cache` v1, v2, and v3 simultaneously. Resolves [#989](https://github.com/serbanghita/Mobile-Detect/issues/989) — the class no longer fatals at load time on hosts where another package has already registered an older `CacheInterface` (common in WordPress stacks).
+- [x] `composer.json`: `psr/simple-cache` constraint widened to `^1.0 || ^2.0 || ^3.0`.
+- [x] **Minimum PHP version raised to 8.2** in `composer.json` (was `>=8.0`). PHP 8.0 and 8.1 are both end-of-life and had already been dropped from CI in 4.9.0 because `phpbench/phpbench: 1.6.1` requires PHP ^8.2.
+
+## Added
+- [x] `psr16-compat` CI matrix that verifies Cache remains LSP-compatible with every supported major of `psr/simple-cache` (1.x, 2.x, 3.x).
+
+## BC note
+- Subclasses of `Detection\Cache\Cache` that overrode `get`/`set`/`has`/`delete`/`getMultiple`/`setMultiple`/`deleteMultiple` (or protected `checkKey`) with narrowed parameter types (e.g. `function get(string $key, …)`) will fatal at class load on this version. Drop the scalar type from the override, or widen to `mixed`, to restore LSP compatibility.
+
 # 4.9.0
 
 ## Added
