@@ -8,7 +8,7 @@ PHP library (`Detection\MobileDetect`) for detecting mobile devices/tablets via 
 
 ## Branch & Release
 
-- Active branch: `4.9.x`. Always rebase into `4.9.x` (not `main` or `master`).
+- Active branch: `4.x` (rolling — one branch per major). Always rebase into `4.x` (not `main` or `master`). Tags follow `<major>.<minor>.<patch>`.
 - On new tag: update `@version` docblock + `$VERSION` property in `src/MobileDetect.php`, and `version` in `MobileDetect.json`.
 
 ## Commands
