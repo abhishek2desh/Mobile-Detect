@@ -396,4 +396,82 @@ final class CacheTest extends TestCase
 
         $this->assertEquals(0, $evicted);
     }
+
+    /**
+     * Regression test for https://github.com/serbanghita/Mobile-Detect/issues/989
+     *
+     * Cache must remain LSP-compatible with PSR-16 v1 (untyped parameters) so it
+     * loads cleanly in hosts where another plugin has registered an older
+     * Psr\SimpleCache\CacheInterface. Re-adding scalar type declarations on the
+     * listed parameters will break that at class load with a fatal error.
+     */
+    public function testPublicMethodParametersAreUntypedForPsr16V1Compatibility(): void
+    {
+        // [method => parameter index] pairs that MUST have no type declaration.
+        $untypedSlots = [
+            ['get', 0],              // $key
+            ['set', 0],              // $key
+            ['set', 2],              // $ttl
+            ['delete', 0],           // $key
+            ['has', 0],              // $key
+            ['getMultiple', 0],      // $keys
+            ['setMultiple', 0],      // $values
+            ['setMultiple', 1],      // $ttl
+            ['deleteMultiple', 0],   // $keys
+        ];
+
+        foreach ($untypedSlots as [$method, $index]) {
+            $param = (new \ReflectionMethod(Cache::class, $method))->getParameters()[$index];
+            self::assertFalse(
+                $param->hasType(),
+                sprintf(
+                    'Cache::%s() parameter $%s must have no type declaration for PSR-16 v1 LSP compatibility, got: %s',
+                    $method,
+                    $param->getName(),
+                    (string) $param->getType()
+                )
+            );
+        }
+    }
+
+    public function testSetWithInvalidTtlTypeThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        $this->cache->set('isMobile', true, 'not-a-valid-ttl');
+    }
+
+    public function testSetMultipleWithNonIterableThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
+        $this->cache->setMultiple('not-iterable');
+    }
+
+    public function testGetMultipleWithNonIterableThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
+        $this->cache->getMultiple('not-iterable');
+    }
+
+    public function testDeleteMultipleWithNonIterableThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
+        $this->cache->deleteMultiple('not-iterable');
+    }
+
+    public function testGetWithNonStringKeyThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
+        $this->cache->get(123);
+    }
+
+    public function testSetWithNonStringKeyThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        /** @phpstan-ignore-next-line Intentional: asserts runtime validation of the widened signature. */
+        $this->cache->set(['notAKey'], 'value');
+    }
 }
